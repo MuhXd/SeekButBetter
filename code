@@ -62,7 +62,7 @@ local Entities = {
 			workspace.Ambience_Seek.TimePosition = 0
 			workspace["Ambience_Seek"]:Play()
 			local firgur =  LoadCustomInstance(Model)
-			Figure = LoadCustomInstance("https://github.com/MuhXd/Models/blob/main/figur.rbxm?raw=true") or Figure == LoadCustomInstance(Func.BlobModel)
+			Figure = Figure == LoadCustomInstance(BlobModel) or LoadCustomInstance("https://github.com/MuhXd/Models/blob/main/figur.rbxm?raw=true")
 			Figure.Parent=firgur
 			firgur.PrimaryPart = Figure
 		        firgur.Figure.Anchored = true
@@ -150,13 +150,16 @@ Args=...
 SeekModel = Args["SeekModel"] or "https://github.com/MuhXd/Models/blob/main/Seekmoving.rbxm?raw=true"
 SeekS2 = Args["SeekStopRoom"] or nil
 SeekS3 = Args["Kill"] or false
-
+Guiding_light = Args["Guiding_light_message"] or "You Died to Seek Put your Custom Death Message Here"
+KillRangeSend = Args["KillRange"] or 12
+FUNC3= Args["EntityDeathRange"] or 12
+BlobModel= Args["EntityDeathRange"] or "https://github.com/MuhXd/Models/blob/main/figur.rbxm?raw=true"
 	print(Entity)
 
 	for Name,List in pairs(Entities) do
 		print(Name)
 		if Name == Entity then
-			List["Func"](SeekModel,SeekS2,SeekS3)
+			List["Func"](SeekModel,SeekS2,SeekS3,Guiding_light,FUNC3)
 		end
 	end
 end
